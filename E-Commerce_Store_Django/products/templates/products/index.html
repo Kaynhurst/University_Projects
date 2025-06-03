@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+
+{% block title%} Products {% endblock %}
+
+
+<!--Page specific CSS -->
+
+{% load static %}
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/products.css' %}">
+{% endblock %}
+
+{% block content %}
+<body>
+    <div id="mainGrid" class="grid-container"> 
+        <div class="itemSort">
+            <p class="sortHeader">Customize your experience !</p>
+
+            <form class="sortMain">
+
+                <!-- Type of product Radio Buttons -->
+                <div class="border border-rounded mn-3">
+                    <p>Item Category<br></p>
+
+                    {% for category in categoryList%}
+                        <input type="radio" id = {{category.categoryName}} name="category" value={{category.categoryName}} class="categorySort">
+                        <label for={{category.categoryName}}>{{category.categoryName}}</label><br>
+                    {% endfor %}
+
+                </div>
+                    
+
+                <!-- Price Range Buttons -->
+                <div class="border border-rounded mt-3">
+                    <label class="pt-1" for="priceRangeMax">
+                        Max Price: <span id="maxPriceValue">50</span>$
+                    </label><br>
+                    <input type="range" min="1" max="150000" value="150000" class="slider" id="priceRangeMax"><br>
+                    <label for="priceRangeMin">
+                        Min Price: <span id="minPriceValue">50</span>$
+                    </label><br>
+                    <input type="range" min="1" max="150000" value="1" class="slider" id="priceRangeMin">
+                </div>
+
+                <!-- Product Grade Type -->
+                <div class="border border-rounded mt-3 d-block">
+                    <p>Item Grade<br></p>
+
+                        {% for grade in gradeList %}
+                            <input type="checkbox" id ={{grade.gradeName}} name ={{grade.gradeName}} value = {{grade.gradeName}} class="gradeSort">
+                            <label for={{grade.gradeName}}>{{grade.gradeName}}</label><br>
+                        {% endfor %}
+
+                </div>
+                <div class="d-inline-block mt-3">
+                    <input id ="sortSubmit" class="btn btn-primary" type="submit" value="Submit">
+                    <button type="button" id="reverseSubmit" class="btn btn-danger d-none">X</button>
+                </div>
+            </form>
+        </div>
+        <div class="productsGrid">
+            <p>Products</p>    
+            <div id = "itemLayout" class="grid-container">
+
+                {%  for item in productsList %}
+                    <div class="grid-item text-wrap productItem position-relative z-0" type="submit"
+                        data-name = "{{item.productName}}"
+                        data-price = "{{item.productPrice}}"
+                        data-grade = "{{item.productGrade.gradeName}}"
+                        data-category = "{{item.productCategory.categoryName}}">
+
+                        <img id="images" src=../{{item.productImage}} alt="">
+                        <br>
+                        <div id="productDescription" for="images">
+                            {{item.productName}}<br>
+                            {{item.productPrice}} <span class="fw-bold">$</span><br>
+                            {{item.productGrade.gradeName}}
+                            {{item.productCategory.categoryName}}
+                        </div>
+
+                        <!-- Add item to cart -->
+                        <button type="submit" class="btn btn-success btn-sm d-flexbox position-absolute end-0 border-warning-subtle rounded-pill z-3">
+                            <a class="text-decoration-none text-light" href="{% url 'products:add_product' item.id %}">Add to Cart</a>
+                        </button>
+                    </div>
+
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+    <script src="{%static 'scripts/products.js'%}" defer></script> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</body>
+{% endblock %}

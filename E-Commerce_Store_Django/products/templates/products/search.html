@@ -1,0 +1,50 @@
+{% extends 'base.html'%}
+
+{% load static %}
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/products.css' %}">
+
+{% endblock %}
+
+
+{% block content %}
+
+{% if products %}
+    <div class="productsGrid">
+        <p>Products Found</p>    
+        <div id = "itemLayout" class="grid-container">
+
+            {%  for item in products %}
+                <div class="grid-item text-wrap productItem position-relative z-0" type="submit"
+                    data-name = "{{item.productName}}"
+                    data-price = "{{item.productPrice}}"
+                    data-grade = "{{item.productGrade.gradeName}}"
+                    data-category = "{{item.productCategory.categoryName}}">
+
+                    <img id="images" src=../{{item.productImage}} alt="">
+                    <br>
+                    <div id="productDescription" for="images">
+                        {{item.productName}}<br>
+                        {{item.productPrice}} <span class="fw-bold">$</span><br>
+                        {{item.productGrade.gradeName}}
+                        {{item.productCategory.categoryName}}
+                    </div>
+
+                    <!-- Add item to cart -->
+                    <button type="submit" class="btn btn-success btn-sm d-flexbox position-absolute end-0 border-warning-subtle rounded-pill z-3">
+                        <a class="text-decoration-none text-light" href="{% url 'products:add_product' item.id %}">Add to Cart</a>
+                    </button>
+                </div>
+
+            {% endfor %}
+
+        </div>
+    </div>
+{% else %}
+
+<h1>404 Item not found...</h1>
+
+{% endif %}
+
+
+{% endblock %}

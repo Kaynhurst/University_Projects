@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block title %}Cyberware Store{% endblock %}
+
+{% load static %}
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
+{% block content %}
+
+    <h1>Featured Items of the Day !!</h1>
+
+    <!-- Featured Random Items Carousel -->
+
+    <div id="featuredItems" class="carousel slide" data-bs-ride="carousel">
+        <!-- Random Products -->
+        <div class="carousel-inner">
+            {% for product in randomProducts %}
+            <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                <img src="../{{product.productImage}}" alt="{{ product.productName }}" class="d-flex w-150">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>{{ product.productName }}</h5>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    
+        <!-- Indicators -->
+        <div class="carousel-indicators">
+            {% for product in randomProducts %}
+            <button type="button" data-bs-target="#featuredItems" data-bs-slide-to="{{ forloop.counter0 }}" class="{% if forloop.first %}active{% endif %}" aria-current="true" aria-label="Slide {{ forloop.counter0 }}"></button>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Quick Search Links for Products -->
+    <div class="quicklinks mt-5">
+        <button class="btn btn-lg px-4 mx-2" onclick="alert('Medication station is under maintenance')">
+            <i class="bi bi-search">Medication</i>
+        </button>
+        
+            <button class="btn btn-lg px-4 mx-2" onclick="alert('Redirecting...')">
+                <a href="https://www.facebook.com"></a>
+                <i class="bi bi-search">Networking</i>
+            </button>
+        </a>
+        <button class="btn btn-lg px-4 mx-2">
+            <i class="bi bi-search"></i>
+        </button>
+    </div>
+
+    <h3>Feel free to browse our wares and see what fits your needs.</h3>
+
+{% endblock %}

@@ -1,0 +1,136 @@
+/* Importing Orbitron font for a futuristic look */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+/* General Body Styling */
+html, body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    background-color: #0f0f0f; 
+    color: #0ff; 
+    font-family: 'Orbitron', sans-serif; /* Futuristic font */
+}
+
+/* Body width and padding adjustments */
+body {
+    width: 95vw;
+    padding-left: 0vw;
+    box-sizing: border-box; 
+}
+
+/* Navigation Bar Styling */
+.navigationbar {
+    width: 100%;
+    background: linear-gradient(90deg, #ff00cc, #3333ff); 
+    padding: 2vh 0;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    position: relative; 
+}
+
+/* Logo Styling */
+.logo {
+    position: absolute;
+    left: 0;
+}
+
+.logo img {
+    max-width: 90px;
+    height: auto; /* Maintain aspect ratio */
+    filter: drop-shadow(0 0 10px #ff00cc); 
+}
+
+/* Navbar Menu Items */
+.navbar-nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly; /* Space out the menu items */
+}
+
+/* Buttons with Dark Background and Neon Effects */
+.btn {
+    color: #0ff;
+    background-color: #1f1f1f; 
+    border: 2px solid #0ff;
+    text-shadow: 0 0 5px #0ff; 
+    padding: 1.5vh 3vw;
+    margin: 0 1vw; 
+    transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    font-size: 1em; 
+    border-radius: 5px; 
+}
+
+/* Hover Effects for Buttons */
+.btn:hover {
+    background-color: #0ff; 
+    color: #1f1f1f; 
+    transform: scale(1.1); 
+    box-shadow: 0 0 10px #0ff; 
+}
+
+/* Styling for Icons Inside Buttons */
+.btn i {
+    position: relative; 
+}
+
+/* Navbar Toggler Button */
+.navbar-toggler {
+    border: none; 
+}
+
+/* Search Bar Styling */
+.search-bar {
+    margin-top: 2vh;
+    display: flex;
+    align-items: center; 
+}
+
+.form-control {
+    width: 20vw;
+    margin-right: 1vw;
+}
+
+.btn-outline-success {
+    color: #1f1f1f;
+    border-color: #0ff;
+    background-color: #1f1f1f; 
+}
+
+footer {
+    width: 100%;
+    text-align: center;
+    padding: 2vh; 
+    background: #20232a; 
+    color: #61dafb; 
+    text-shadow: 0 0 8px #61dafb; 
+    margin-top: 4vh; 
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.5);
+    position: relative; 
+}
+
+/* Additional Styles for Cyberpunk Aesthetic */
+h1, h2, h3, h4, h5, h6 {
+    color: #ff00cc; /* Neon pink color for headings */
+    text-shadow: 0 0 10px #ff00cc; /* Neon glow effect for headings */
+}
+
+a {
+    color: #0ff; /* Neon cyan color for links */
+    text-shadow: 0 0 5px #0ff; /* Neon glow effect for links */
+    text-decoration: none; /* Remove underline */
+}
+
+a:hover {
+    color: #ff00cc; /* Neon pink color on hover */
+    text-shadow: 0 0 10px #ff00cc; /* Stronger glow effect on hover */
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0; /* Adjusts the dropdown to appear immediately */
+}

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/base.css'%}">
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+        
+        {% block extra_css %}
+        {% endblock %}
+
+        <title>{% block title%}Cyberware Store{% endblock %}</title>
+    </head>
+    <body>
+        <div class="navigationbar position-relative">            
+            <!-- Logo -->
+            <div class="logo bg-danger position-absolute top-50 start-0 translate-middle-y">
+                <img src="{%static '/images/logo.png'%}" width="90" height="90" alt="logo">
+            </div>        
+            <!-- Navigation -->
+            <nav class="navbar navbar-expand-lg d-inline-block w-100">
+
+                <button class="navbar-toggler bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon "></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <!-- Navigation Menu Buttons -->
+                        <li class="nav-item">
+                            <a class="navbar-brand" href="{% url 'home:index' %}">
+                                <button type="button" class="btn btn-lg btn-dark">Home</button>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="navbar-brand" href="{% url 'products:index' %}">                    
+                                <button type="button" class="btn btn-lg btn-dark">Products</button>
+                            </a>
+                        </li>
+                        <li class="nav-item">   <!--{% url 'forum:index' %}-->
+                            <a class="navbar-brand" href="">
+                                <button type="button" class="btn btn-lg btn-dark" disabled>Forum</button>
+                            </a>
+                        </li>
+                        <li class="nav-item">   <!--{% url 'contact:index' %}-->
+                            <a class="navbar-brand" href="#">
+                                <button type="button" class="btn btn-lg btn-dark" disabled>Contact</button>
+                            </a>
+                        </li>
+
+
+                    </ul>
+                                    
+                    {% if user.is_authenticated %}
+                        <div class="nav-item">
+                            <!-- User Profile -->
+                            <a href="{% url 'accounts:profile' %}">
+                                <button id="logoButton" type="button" class="btn btn-dark">Profile <i class="bi bi-person-rolodex position-absolute"></i></button>
+                            </a>
+                            <form action="{% url 'logout' %}" method="post">
+                                {% csrf_token %}
+                                <button class="btn mt-1 btn-dark" type="submit">Log Out</button>
+                            </form>
+                        </div>
+
+                    {% else %}
+                        <div class="nav-item">
+                            <!-- User Login -->
+                            <a href="{% url 'login'%}">
+                                <button id="logoButton" type="button" class="btn btn-dark">Login <i class="bi bi-person-circle position-absolute"></i></button>
+                            </a>
+                        </div>
+                    {% endif %}
+
+                    <div class="nav-item" class="position-relative">
+                        <!-- Shopping Cart -->
+                        <a href="{% url 'products:cart' %}">
+                            <button id="logoButton" type="button" class="btn btn-dark">
+                                Cart <i class="bi bi-cart position-absolute"></i>
+                            </button>
+                        </a>
+                    </div>
+                    <!-- Search Product -->
+                    <form class="d-flex search-bar" action="{% url 'products:search' %}" method="GET">
+                        <input class="form-control me-2" type="text" name="search_product" placeholder="Quick Search" aria-label="Search">
+                        <button type="submit" id="logoButton" class="btn btn-sm btn-dark">
+                            <i class="bi bi-search"></i>
+                        </button>
+                    </form>
+                </div>
+            </nav>
+        </div>
+
+        <main>
+            {% block content %}
+            {% endblock %}
+        </main>
+
+
+        <footer>
+            <p style="margin: 0;">Welcome to the Neon Nexus - Your gateway to the digital future.</p>
+            <p style="margin: 0;">All data, information, and imagery are synthesized for your immersive experience. Use with caution.</p>
+            <p style="margin: 0;">No liability for digital anomalies, temporal distortions, or unexpected glitches in your journey.</p>
+            <p style="margin: 0;">For any support queries, interface with our cyber-support unit directly in the virtual realm.</p>
+            <p style="margin: 0;">Copyright &copy; 2024 Neon Nexus Corp. All rights reserved.</p>
+        </footer>
+        
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    </body>
+</html>
+

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/products.css' %}">
+{% endblock %}
+
+{% block content %}
+
+
+{% for item in checkoutCart %}
+    <div id="productDescription" class="">
+        
+        <br>
+            Item Name : {{item.item.productName}}<br>
+            Price : {{item.item.productPrice}}
+            <span class="fw-bold">$</span><br>
+            Quantity: {{item.quantity}}<br>
+            <button type="submit" class="btn btn-danger mt-1">
+            <a class="text-decoration-none text-light" href="{% url 'products:remove_product' item.item.id %}">Remove from Cart</a>
+        </button>
+    </div>
+{% endfor %}
+
+<h1>Total is {{total}}</h1>
+
+{% endblock%}

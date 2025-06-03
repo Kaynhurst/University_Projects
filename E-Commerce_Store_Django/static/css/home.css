@@ -1,0 +1,91 @@
+/* General body styling */
+body {
+  background-color: #0f0f0f; 
+  color: #0ff;
+  font-family: 'Orbitron', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Carousel container styling */
+#featuredItems {
+  position: relative;
+  width: 100%; 
+  max-width: 1200px; 
+  margin: 5vh auto; 
+  overflow: hidden; 
+}
+
+/* Carousel inner styling */
+.carousel-inner {
+  position: relative;
+}
+
+/* Carousel item styling */
+.carousel-item {
+  position: relative;
+  height: 500px; 
+}
+
+.carousel-item img {
+  width: 75%; 
+  height: 65%; 
+  object-fit: cover;
+  display: block; 
+  filter: brightness(0.8) contrast(1.2) saturate(1.5); 
+}
+
+/* Carousel caption styling */
+.carousel-caption {
+  position: absolute;
+  bottom: 20px; 
+  left: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff; 
+  padding: 10px; 
+  border-radius: 5px; 
+}
+
+/* Carousel indicators styling */
+.carousel-indicators {
+  position: absolute;
+  bottom: -5%; 
+  left: 50%; 
+  transform: translateX(-50%); 
+  display: flex; 
+  gap: 5px; 
+  z-index: 10;
+}
+
+.carousel-indicators button {
+  background-color: #0ff; 
+  border: none; 
+  width: 12px; 
+  height: 12px; 
+  border-radius: 50%; 
+  box-shadow: 0 0 5px #0ff; 
+  transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+.carousel-indicators .active {
+  background-color: #00f; 
+  box-shadow: 0 0 10px #00f; 
+}
+
+/* Quick Links Styling */
+.quicklinks {
+  display: flex;
+  flex-wrap: wrap; 
+  justify-content: center; 
+  margin-top: 5vh; 
+}
+
+.quicklinks button {
+  color: #0ff; 
+  background-color: #1f1f1f; 
+  border: 2px solid #0ff; 
+  text-shadow: 0 0 5px #0ff; 
+  margin: 1vw; 
+  padding: 1.5vh 3vw; 
+  transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+}
