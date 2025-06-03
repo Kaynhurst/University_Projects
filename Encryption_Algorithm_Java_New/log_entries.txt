@@ -1,0 +1,43 @@
+--- Log Entry ---
+Log Type : Decryption 
+Time of Entry : 09-11-2023 13:26:16
+--- Log Entry ---
+Log Type : Encryption.
+Time of Entry : 09-11-2023 13:40:53
+Master Key : MikeIsTheName12345Master Key Length : 18Text length.27--- Log Entry ---
+Log Type : Encryption.
+Time of Entry : 09-11-2023 13:42:12
+Master Key : MikeIsTheName12345
+Master Key Length : 18
+Text length.27
+--- Log Entry ---
+Log Type : Encryption.
+Time of Entry : 09-11-2023 13:45:27
+Master Key : MikeIsTheName123456
+Master Key Length : 19
+Text length.27
+Encryption time : 62s.--- Log Entry ---
+Log Type : Encryption.
+Time of Entry : 09-11-2023 13:46:40
+Master Key : MikeIsTheName12345
+Master Key Length : 18
+Text length.27
+Encryption time : 0s.--- Log Entry ---
+Log Type : Encryption.
+Time of Entry : 09-11-2023 13:48:07
+Master Key : MikeIsTheName12345
+Master Key Length : 18
+Text length.27
+Encryption time : %.4f seconds0--- Log Entry ---
+Log Type : Encryption.
+Time of Entry : 09-11-2023 13:49:07
+Master Key : MikeIsTHeName1223456
+Master Key Length : 20
+Text length.27
+--- Log Entry ---
+Log Type : Encryption.
+Time of Entry : 09-11-2023 13:49:36
+Master Key : 1231231231312313131233213
+Master Key Length : 25
+Text length.27
+Encryption time: 0.032 seconds
